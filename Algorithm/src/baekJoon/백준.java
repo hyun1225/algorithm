@@ -18,7 +18,7 @@ public class 백준 {
 	
 
 	public static void main(String[] args) throws FileNotFoundException {
-		System.setIn(new FileInputStream("res/백준input.txt"));
+		System.setIn(new FileInputStream("res/백준input_.txt"));
 
 		/*
 		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
