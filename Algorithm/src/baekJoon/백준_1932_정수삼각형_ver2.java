@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class 백준_1932_정수삼각형 {
+public class 백준_1932_정수삼각형_ver2 {
 	
 	public static int[][] dp;
 	public static int N ;
@@ -41,26 +41,13 @@ public class 백준_1932_정수삼각형 {
 			}
 		}
 		
-		
-		for(int i = 1 ; i < N; i ++) {
-			for(int j = 0 ; j <= i; j++) {
-				if(j == 0) {
-					dp[i][j] = dp[i-1][j] + dp[i][j];
-				}else if( j == i) {
-					dp[i][j] = dp[i-1][j-1] + dp[i][j];
-				}else {
-					dp[i][j] = Math.max(dp[i-1][j-1], dp[i-1][j]) + dp[i][j];
-				}
+		for(int i = N-2 ; i >=0 ; i--) {
+			for (int j = 0; j <= i; j++) {
+				dp[i][j] = Math.max(dp[i + 1][j], dp[i + 1][j + 1]) + dp[i][j];
 			}
 		}
 		
-		for(int i = 0 ; i < N ; i ++) {
-			max = Math.max(dp[N-1][i], max);
-		}
-		
-		
-		
-		System.out.println(max);
+		System.out.println(dp[0][0]);
 		
 	}
 

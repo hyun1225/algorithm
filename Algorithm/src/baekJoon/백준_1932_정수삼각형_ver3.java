@@ -16,11 +16,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class 백준_1932_정수삼각형 {
+public class 백준_1932_정수삼각형_ver3 {
 	
-	public static int[][] dp;
-	public static int N ;
-	public static int max = Integer.MIN_VALUE;
+	static int[][] arr;
+	static Integer[][] dp;
+	static int N;
 
 	public static void main(String[] args) throws IOException {
 		System.setIn(new FileInputStream("res/백준input_1932.txt"));
@@ -31,37 +31,36 @@ public class 백준_1932_정수삼각형 {
 		//Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		dp = new int[N][N];
+		 
+		arr = new int[N][N];
+		dp = new Integer[N][N];
 		StringTokenizer st;
-		
-		for(int i = 0 ; i < N ; i ++) {
-			st = new StringTokenizer(br.readLine());
-			for(int j = 0 ; j <= i ; j ++) {
-				dp[i][j] = Integer.parseInt(st.nextToken());
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+ 
+			for (int j = 0; j < i + 1; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		
-		
-		for(int i = 1 ; i < N; i ++) {
-			for(int j = 0 ; j <= i; j++) {
-				if(j == 0) {
-					dp[i][j] = dp[i-1][j] + dp[i][j];
-				}else if( j == i) {
-					dp[i][j] = dp[i-1][j-1] + dp[i][j];
-				}else {
-					dp[i][j] = Math.max(dp[i-1][j-1], dp[i-1][j]) + dp[i][j];
-				}
-			}
+ 
+		for (int i = 0; i < N; i++) {
+			dp[N - 1][i] = arr[N - 1][i];
 		}
+ 
+		System.out.println(find(0, 0));
 		
-		for(int i = 0 ; i < N ; i ++) {
-			max = Math.max(dp[N-1][i], max);
+	}
+
+	static int find(int depth, int idx) {
+		// 마지막 행일 경우 현재 위치의 dp값 반환
+		if(depth == N - 1) return dp[depth][idx];
+ 
+		// 탐색하지 않았던 값일 경우 다음 행의 양쪽 값 비교
+		if (dp[depth][idx] == null) {
+			dp[depth][idx] = Math.max(find(depth + 1, idx), find(depth + 1, idx + 1)) + arr[depth][idx];
 		}
-		
-		
-		
-		System.out.println(max);
-		
+		return dp[depth][idx];
+ 
 	}
 
 }
