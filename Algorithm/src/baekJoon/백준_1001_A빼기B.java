@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 //AB = sc.nextLong();                         // long 변수 1개 입력받는 예제
 import java.io.FileNotFoundException;
 	
-public class 백준_1001 {
+public class 백준_1001_A빼기B {
 	
 	
 	public static int a,b,answer;
