@@ -73,7 +73,8 @@ public class 백준_20057_마법사상어와토네이도 {
 						int spreadX = nx + tmpRatio[j][0];
 						int spreadY = ny + tmpRatio[j][1];
 					//	int spreadMount = (totalSand / 100) * tmpRatio[j][2];
-						int spreadMount = (int)( (double)totalSand *(double)((double)1 / (double)100 * (double)tmpRatio[j][2])) ;
+					//	int spreadMount = (int)( (double)totalSand *(double)((double)1 / (double)100 * (double)tmpRatio[j][2])) ;
+						int spreadMount = (totalSand*tmpRatio[j][2])/100;
 						if(spreadX >= N || spreadY >=N || spreadX < 0 || spreadY < 0) {
 							answer += spreadMount;
 						}else {
@@ -84,7 +85,7 @@ public class 백준_20057_마법사상어와토네이도 {
 					int ax = nx+dx[direction];
 					int ay = ny+dy[direction];
 					if(ax >= N || ax < 0 || ay >= N || ay < 0) answer += map[nx][ny];
-					else map[ax][ay] = map[nx][ny];
+					else map[ax][ay] += map[nx][ny];
 					map[nx][ny] = 0;
 					nowPos[0] = nx;
 					nowPos[1] = ny;
