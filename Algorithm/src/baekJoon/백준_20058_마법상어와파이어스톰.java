@@ -50,10 +50,19 @@ public class 백준_20058_마법상어와파이어스톰 {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		
+		/*
 		st = new StringTokenizer(br.readLine());
 		for(int i = 0 ; i < Q ; i ++) {
-			L[i] = Integer.parseInt(st.nextToken());
+			int L = Integer.parseInt(st.nextToken());
+			int smallRange = (int) Math.pow(2, L);
+			rotate(smallRange);
+			iceCheck();
+			map = tmpMap;
+		}
+		*/
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0 ; i < Q ; i ++) {
+			L[i]= Integer.parseInt(st.nextToken());
 		}
 		
 		fireStorm();
