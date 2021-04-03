@@ -27,6 +27,7 @@ public class 백준_11559_PUYOPUYO {
 	public static List<int[]> list;
 	public static int cnt, ans=0;
 	public static boolean flag = false;
+	//public static char[][] charMap;
 
 	public static void main(String[] args) throws IOException {
 		System.setIn(new FileInputStream("res/백준input_11559.txt"));
@@ -41,6 +42,15 @@ public class 백준_11559_PUYOPUYO {
 		for(int i = 0 ; i < 12 ; i ++) {
 			map[i] = br.readLine().split("");
 		}
+		
+		/*
+		//char형 2차원 배열로 입력 받
+		charMap = new char[12][6];
+		for(int i = 0 ; i < 12 ; i ++) {
+			charMap[i] = br.readLine().toCharArray();
+		}
+		*/
+		
 		
 		//dfs로 4이상 인것들 찾음
 		//찾은후 없애고 남은것들을 내림  
@@ -80,6 +90,8 @@ public class 백준_11559_PUYOPUYO {
 		}
 	}
 
+	/* 방법1
+	//
 	private static void down() {
 		for(int i = 11 ; i >= 0 ; i --) {
 			for(int j = 0 ; j < 6 ; j ++) {
@@ -99,6 +111,22 @@ public class 백준_11559_PUYOPUYO {
 			}
 		}
 		
+	}
+	*/
+	
+	//방법2
+	private static void down() {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 10; j >= 0; j--) {
+				for (int k = 11; k > j; k--) {
+					if (!".".equals(map[j][i]) && ".".equals(map[k][i])) {
+						map[k][i] = map[j][i];
+						map[j][i] = ".";
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	private static void dfs(int i, int j) {
