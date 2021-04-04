@@ -1,6 +1,6 @@
 package practice;
 
-public class floid {
+public class practice_플로이드와샬 {
 	
 	static int INF = 999999;
 
