@@ -125,7 +125,7 @@ public class 백준_17142_연구소3 {
 		}
 
 		while (true) {
-			if (q.size() == 0 || tmpBlank == 0) {
+			if (q.size() == 0 || tmpBlank == 0 || tmpTime > minTime) {
 				break;
 			}
 			tmpTime++;
