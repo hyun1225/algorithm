@@ -1,4 +1,4 @@
-package baekJoon;
+package baekJoon.삼성기출;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class 백준15684_사다리조작 {
+public class 백준_15684_사다리조작 {
 	
     private static int n, m, h, answer = 4;
     private static int[][] map;

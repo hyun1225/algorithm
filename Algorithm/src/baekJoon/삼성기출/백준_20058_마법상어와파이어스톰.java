@@ -1,4 +1,4 @@
-package baekJoon;
+package baekJoon.삼성기출;
 
 import java.util.ArrayList;
 import java.util.Queue;
