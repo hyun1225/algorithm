@@ -1,4 +1,4 @@
-package baekJoon;
+package baekJoon.시뮬레이션;
 
 import java.util.ArrayList;
 import java.util.Queue;
