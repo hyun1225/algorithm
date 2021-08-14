@@ -1,6 +1,8 @@
 package baekJoon.삼성기출;
 
 import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Scanner;
@@ -12,7 +14,7 @@ import java.io.FileInputStream;
 //AB = sc.nextLong();                         // long 변수 1개 입력받는 예제
 import java.io.FileNotFoundException;
 
-public class 백준_ {
+public class 백준_12100_2048Easy {
 	
 	static int N;
 	static int max = Integer.MIN_VALUE;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Scanner;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 //a = sc.nextInt();                           // int 변수 1개 입력받는 예제
 //b = sc.nextDouble();                        // double 변수 1개 입력받는 예제
@@ -11,8 +12,11 @@ import java.io.FileInputStream;
 //var = sc.next();                            // 문자열 1개 입력받는 예제
 //AB = sc.nextLong();                         // long 변수 1개 입력받는 예제
 import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.io.*;
 
-public class 백준_ {
+public class 백준_12100_2048Easy_ver2 {
 	
 	static int N;
 	static int max = Integer.MIN_VALUE;
