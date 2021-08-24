@@ -19,8 +19,7 @@ import java.io.FileNotFoundException;
 
 public class programmers_메뉴리뉴얼_ver2 {
 	
-
-; 
+ 
 	static String[] orders = {"ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"};
 	static int[] course = {2, 3, 5};
 	static HashMap<String,Integer> map;
@@ -59,14 +58,7 @@ public class programmers_메뉴리뉴얼_ver2 {
 	
 	 static void find(int cnt, String str, int targetNum, int idx, String word){
 	        if (cnt==targetNum){
-	            char[] c = str.toCharArray();
-	            Arrays.sort(c);
-	            String temps="";
-	            for (int i=0;i<c.length;i++) {
-	            	temps+=c[i];
-	            }
-	            map.put(temps,map.getOrDefault(temps,0)+1);
-	            m = Math.max(m,map.get(temps));
+	        	check(str);
 	            return;
 	        }
 	        for (int i=idx; i<word.length(); i++){
@@ -74,6 +66,17 @@ public class programmers_메뉴리뉴얼_ver2 {
 	            find(cnt+1,str+now,targetNum,i+1,word);
 	        }
 	    }
+
+	private static void check(String str) {
+		char[] c = str.toCharArray();
+        Arrays.sort(c);
+        String temps="";
+        for (int i=0;i<c.length;i++) {
+        	temps+=c[i];
+        }
+        map.put(temps,map.getOrDefault(temps,0)+1);
+        m = Math.max(m,map.get(temps));
+	}
 
 }
 
