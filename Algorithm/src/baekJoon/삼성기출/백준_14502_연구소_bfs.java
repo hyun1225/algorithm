@@ -1,6 +1,7 @@
 package baekJoon.삼성기출;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class 백준_14502_연구소 {
+public class 백준_14502_연구소_bfs {
 	
 	static int blank,safeArea;
 	static int max = Integer.MIN_VALUE;
@@ -108,11 +109,25 @@ public class 백준_14502_연구소 {
 		safeArea = blank-3;
 		spreadMap = mapCopy(map);
 		
+		Queue<int[]> q = new LinkedList<>();
+		
 		for(int i = 0 ; i < virus.size(); i ++) {
-			int x = virus.get(i).x;
-			int y = virus.get(i).y;
+			q.add(new int[] {virus.get(i).x, virus.get(i).y});
+		}
+		
+		while(!q.isEmpty()) {
+			int[] v = q.poll();
 			
-			dfs(x,y);
+			for(int d = 0 ; d < 4 ; d ++) {
+				int nx = v[0]+dx[d];
+				int ny = v[1]+dy[d];
+				
+				if(nx < 0 || nx >= N || ny < 0 || ny >= M) continue;
+				if(spreadMap[nx][ny] != 0) continue;
+				spreadMap[nx][ny] = 2;
+				safeArea--;
+				q.add(new int[] {nx,ny});
+			}
 		}
 		
 		max = Math.max(max, safeArea);
