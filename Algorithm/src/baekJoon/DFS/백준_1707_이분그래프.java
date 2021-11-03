@@ -77,26 +77,6 @@ public class 백준_1707_이분그래프 {
 			}
 		}
 	}
-	
-	private static void check(int num) {
-		
-		checkVisit[num] = 1;
-		
-		for(int i = 0 ; i < graph[num].size(); i ++) {
-			if(flag == false) return;
-			
-			int linkNum = graph[num].get(i);
-			
-			if(checkVisit[linkNum] != 0) continue;
-			
-			if(visit[num] == visit[linkNum]) {
-				flag = false;
-			}else {
-				check(linkNum);
-			}
-		}
-		
-	}
 
 	public static void dfs(int num, int team) {
 		visit[num] = team;
@@ -106,20 +86,6 @@ public class 백준_1707_이분그래프 {
 			if(visit[graph[num].get(i)] == 0) {
 				dfs(graph[num].get(i) , 3-team);
 			}
-			
-			/*
-			if(flag == false) return;
-			
-			int linkNum = graph[num].get(i);
-			if(visit[linkNum] == 0) {
-				dfs(linkNum, 3-team);
-			}else {
-				if(visit[num] == visit[linkNum]) {
-					flag = false;
-				}
-			}
-			*/
-			
 		}
 	}
 
